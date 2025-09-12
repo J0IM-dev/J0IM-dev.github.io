@@ -1,0 +1,690 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Series</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(50, 48, 44, 1);
+}
+.highlight-gray {
+	color: rgba(115, 114, 110, 1);
+	fill: rgba(115, 114, 110, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(205, 60, 58, 1);
+	fill: rgba(205, 60, 58, 1);
+}
+.highlight-default_background {
+	color: rgba(50, 48, 44, 1);
+}
+.highlight-gray_background {
+	background: rgba(248, 248, 247, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(248, 243, 252, 1);
+}
+.highlight-pink_background {
+	background: rgba(252, 241, 246, 1);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(115, 114, 110, 1);
+	fill: rgba(115, 114, 110, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(205, 60, 58, 1);
+	fill: rgba(205, 60, 58, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(248, 248, 247, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(248, 243, 252, 1);
+}
+.block-color-pink_background {
+	background: rgba(252, 241, 246, 1);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(174, 130, 0, 0.223); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 99, 174, 0.172); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="25c4e113-135f-8091-af21-c05609fdf3f6" class="page sans"><header><div class="page-header-icon undefined"><img class="icon" src="https://www.notion.so/icons/tv_gray.svg"/></div><h1 class="page-title">Series</h1><p class="page-description"></p></header><div class="page-body"><div id="25e4e113-135f-8014-b793-d25a591bbf12" class="collection-content"><h4 class="collection-title">Series</h4><table class="collection-content"><thead><tr><th><span class="icon property-icon"><img src="https://www.notion.so/icons/tv_gray.svg" style="width:14px;height:14px;display:block"/></span>Title</th><th><span class="icon property-icon"><div data-testid="/icons/list_gray.svg" style="width:14px;height:14px;flex-shrink:0;transform:scale(1.2);mask:url(/icons/list_gray.svg?mode=light) no-repeat center;-webkit-mask:url(/icons/list_gray.svg?mode=light) no-repeat center;background-color:rgba(71, 70, 68, 0.6);fill:rgba(71, 70, 68, 0.6)"></div></span>cast</th><th><span class="icon property-icon"><div data-testid="/icons/arrow-circle-down_gray.svg" style="width:14px;height:14px;flex-shrink:0;transform:scale(1.2);mask:url(/icons/arrow-circle-down_gray.svg?mode=light) no-repeat center;-webkit-mask:url(/icons/arrow-circle-down_gray.svg?mode=light) no-repeat center;background-color:rgba(71, 70, 68, 0.6);fill:rgba(71, 70, 68, 0.6)"></div></span>country</th><th><span class="icon property-icon"><div data-testid="/icons/arrow-circle-down_gray.svg" style="width:14px;height:14px;flex-shrink:0;transform:scale(1.2);mask:url(/icons/arrow-circle-down_gray.svg?mode=light) no-repeat center;-webkit-mask:url(/icons/arrow-circle-down_gray.svg?mode=light) no-repeat center;background-color:rgba(71, 70, 68, 0.6);fill:rgba(71, 70, 68, 0.6)"></div></span>episode</th><th><span class="icon property-icon"><div data-testid="/icons/attachment_gray.svg" style="width:14px;height:14px;flex-shrink:0;transform:scale(1.2);mask:url(/icons/attachment_gray.svg?mode=light) no-repeat center;-webkit-mask:url(/icons/attachment_gray.svg?mode=light) no-repeat center;background-color:rgba(71, 70, 68, 0.6);fill:rgba(71, 70, 68, 0.6)"></div></span>poster_url</th><th><span class="icon property-icon"><div data-testid="/icons/arrow-circle-down_gray.svg" style="width:14px;height:14px;flex-shrink:0;transform:scale(1.2);mask:url(/icons/arrow-circle-down_gray.svg?mode=light) no-repeat center;-webkit-mask:url(/icons/arrow-circle-down_gray.svg?mode=light) no-repeat center;background-color:rgba(71, 70, 68, 0.6);fill:rgba(71, 70, 68, 0.6)"></div></span>stars</th><th><span class="icon property-icon"><div data-testid="/icons/calendar_gray.svg" style="width:14px;height:14px;flex-shrink:0;transform:scale(1.2);mask:url(/icons/calendar_gray.svg?mode=light) no-repeat center;-webkit-mask:url(/icons/calendar_gray.svg?mode=light) no-repeat center;background-color:rgba(71, 70, 68, 0.6);fill:rgba(71, 70, 68, 0.6)"></div></span>watch_date</th></tr></thead><tbody><tr id="25e4e113-135f-804c-9ac5-cab65b95e637"><td class="cell-title"><a href="Series%2025c4e113135f8091af21c05609fdf3f6/Series%2025e4e113135f8014b793d25a591bbf12/%EA%B7%B8%EB%A0%87%EA%B2%8C%20%EC%82%AC%EA%B1%B4%20%ED%98%84%EC%9E%A5%EC%9D%B4%20%EB%90%98%EC%96%B4%20%EB%B2%84%EB%A0%B8%EB%8B%A4%2025e4e113135f804c9ac5cab65b95e637.html">그렇게 사건 현장이 되어 버렸다</a></td><td class="cell-Kysk"><span class="selected-value select-value-color-pink">랜들 박</span><span class="selected-value select-value-color-green">우조 아두바</span></td><td class="cell-=oz]"><span class="selected-value select-value-color-default">US</span></td><td class="cell-:aEI"><span class="selected-value select-value-color-pink">8부작</span></td><td class="cell-yNb_"><span style="margin-inline-end:6px"><a href="https://an2-img.amz.wtchn.net/image/v2/btHr61qR5vXxnHhQpmZCZQ.webp?jwt=ZXlKaGJHY2lPaUpJVXpJMU5pSjkuZXlKdmNIUnpJanBiSW1SZk5Ea3dlRGN3TUhFNE1DSmRMQ0p3SWpvaUwzWXlMM04wYjNKbEwybHRZV2RsTHpFeE5UUTJNRGszTVRjM01EUTFOVFEySW4wLnpFOFpDNWlLTl9rWTk5d2RRbXU0bk9zRVJuV082ZEVMdlNObjliY3hzR1k="><img style="width:20px;max-height:24px" src="https://an2-img.amz.wtchn.net/image/v2/btHr61qR5vXxnHhQpmZCZQ.webp?jwt=ZXlKaGJHY2lPaUpJVXpJMU5pSjkuZXlKdmNIUnpJanBiSW1SZk5Ea3dlRGN3TUhFNE1DSmRMQ0p3SWpvaUwzWXlMM04wYjNKbEwybHRZV2RsTHpFeE5UUTJNRGszTVRjM01EUTFOVFEySW4wLnpFOFpDNWlLTl9rWTk5d2RRbXU0bk9zRVJuV082ZEVMdlNObjliY3hzR1k=" alt="https://an2-img.amz.wtchn.net/image/v2/btHr61qR5vXxnHhQpmZCZQ.webp?jwt=ZXlKaGJHY2lPaUpJVXpJMU5pSjkuZXlKdmNIUnpJanBiSW1SZk5Ea3dlRGN3TUhFNE1DSmRMQ0p3SWpvaUwzWXlMM04wYjNKbEwybHRZV2RsTHpFeE5UUTJNRGszTVRjM01EUTFOVFEySW4wLnpFOFpDNWlLTl9rWTk5d2RRbXU0bk9zRVJuV082ZEVMdlNObjliY3hzR1k="/></a></span></td><td class="cell-J[[u"><span class="selected-value select-value-color-yellow">⭐⭐⭐</span></td><td class="cell-op~m"><time>@2025년 8월 23일</time></td></tr><tr id="25e4e113-135f-80be-9c2e-e4c98217cbdf"><td class="cell-title"><a href="Series%2025c4e113135f8091af21c05609fdf3f6/Series%2025e4e113135f8014b793d25a591bbf12/%EB%82%B4%20%EB%82%A8%ED%8E%B8%EA%B3%BC%20%EA%B2%B0%ED%98%BC%ED%95%B4%EC%A4%98%20(%EC%9D%BC%EB%B3%B8%ED%8C%90)%2025e4e113135f80be9c2ee4c98217cbdf.html">내 남편과 결혼해줘 (일본판)</a></td><td class="cell-Kysk"><span class="selected-value select-value-color-red">사토 타케루</span><span class="selected-value select-value-color-orange">시라이시 세이</span><span class="selected-value select-value-color-gray">요코야마 유</span><span class="selected-value select-value-color-blue">코시바 후우카</span><span class="selected-value select-value-color-default">쿠로사키 레이나</span></td><td class="cell-=oz]"><span class="selected-value select-value-color-blue">Japan</span></td><td class="cell-:aEI"><span class="selected-value select-value-color-yellow">10부작</span></td><td class="cell-yNb_"><span style="margin-inline-end:6px"><a href="https://an2-img.amz.wtchn.net/image/v2/XIKmDJlwVM9eID0ribOyoA.webp?jwt=ZXlKaGJHY2lPaUpJVXpJMU5pSjkuZXlKdmNIUnpJanBiSW1SZk5Ea3dlRGN3TUhFNE1DSmRMQ0p3SWpvaUwzWXlMM04wYjNKbEwybHRZV2RsTHpFME5qVTNOVFF5TlRnNU1EUTVPVE1pZlEuMGtVeVFlMENYR2ZGcDhKME1MT2p2Mmt4WS1KbXE3TUN6THJ2UERaLTlsMA=="><img style="width:20px;max-height:24px" src="https://an2-img.amz.wtchn.net/image/v2/XIKmDJlwVM9eID0ribOyoA.webp?jwt=ZXlKaGJHY2lPaUpJVXpJMU5pSjkuZXlKdmNIUnpJanBiSW1SZk5Ea3dlRGN3TUhFNE1DSmRMQ0p3SWpvaUwzWXlMM04wYjNKbEwybHRZV2RsTHpFME5qVTNOVFF5TlRnNU1EUTVPVE1pZlEuMGtVeVFlMENYR2ZGcDhKME1MT2p2Mmt4WS1KbXE3TUN6THJ2UERaLTlsMA==" alt="https://an2-img.amz.wtchn.net/image/v2/XIKmDJlwVM9eID0ribOyoA.webp?jwt=ZXlKaGJHY2lPaUpJVXpJMU5pSjkuZXlKdmNIUnpJanBiSW1SZk5Ea3dlRGN3TUhFNE1DSmRMQ0p3SWpvaUwzWXlMM04wYjNKbEwybHRZV2RsTHpFME5qVTNOVFF5TlRnNU1EUTVPVE1pZlEuMGtVeVFlMENYR2ZGcDhKME1MT2p2Mmt4WS1KbXE3TUN6THJ2UERaLTlsMA=="/></a></span></td><td class="cell-J[[u"><span class="selected-value select-value-color-purple">⭐⭐</span></td><td class="cell-op~m"><time>@2025년 8월 4일</time></td></tr><tr id="25e4e113-135f-8081-ba8a-df1143e00e2c"><td class="cell-title"><a href="Series%2025c4e113135f8091af21c05609fdf3f6/Series%2025e4e113135f8014b793d25a591bbf12/%EB%88%84%EA%B0%80%20%EA%B3%B5%EC%9E%91%EC%9D%98%20%EC%B6%A4%EC%9D%84%20%EB%B3%B4%EC%95%98%EB%82%98%2025e4e113135f8081ba8adf1143e00e2c.html">누가 공작의 춤을 보았나?</a></td><td class="cell-Kysk"><span class="selected-value select-value-color-brown">릴리 프랭키</span><span class="selected-value select-value-color-yellow">마츠야마 켄이치</span><span class="selected-value select-value-color-blue">모리사키 윈</span><span class="selected-value select-value-color-purple">히로세 스즈</span></td><td class="cell-=oz]"><span class="selected-value select-value-color-blue">Japan</span></td><td class="cell-:aEI"><span class="selected-value select-value-color-yellow">10부작</span></td><td class="cell-yNb_"><span style="margin-inline-end:6px"><a href="https://an2-img.amz.wtchn.net/image/v2/tn_RIWUs25YrXXUfnJgu2Q.webp?jwt=ZXlKaGJHY2lPaUpJVXpJMU5pSjkuZXlKdmNIUnpJanBiSW1SZk5Ea3dlRGN3TUhFNE1DSmRMQ0p3SWpvaUwzWXlMM04wYjNKbEwybHRZV2RsTHpNME5Ea3dOVEk1TVRFeE5qTTBORFVpZlEuWmFEck15MEYtdzlNUWJ2R2VGMjljelNpWmNucDNaODFmRnpvemdoRG1nVQ=="><img style="width:20px;max-height:24px" src="https://an2-img.amz.wtchn.net/image/v2/tn_RIWUs25YrXXUfnJgu2Q.webp?jwt=ZXlKaGJHY2lPaUpJVXpJMU5pSjkuZXlKdmNIUnpJanBiSW1SZk5Ea3dlRGN3TUhFNE1DSmRMQ0p3SWpvaUwzWXlMM04wYjNKbEwybHRZV2RsTHpNME5Ea3dOVEk1TVRFeE5qTTBORFVpZlEuWmFEck15MEYtdzlNUWJ2R2VGMjljelNpWmNucDNaODFmRnpvemdoRG1nVQ==" alt="https://an2-img.amz.wtchn.net/image/v2/tn_RIWUs25YrXXUfnJgu2Q.webp?jwt=ZXlKaGJHY2lPaUpJVXpJMU5pSjkuZXlKdmNIUnpJanBiSW1SZk5Ea3dlRGN3TUhFNE1DSmRMQ0p3SWpvaUwzWXlMM04wYjNKbEwybHRZV2RsTHpNME5Ea3dOVEk1TVRFeE5qTTBORFVpZlEuWmFEck15MEYtdzlNUWJ2R2VGMjljelNpWmNucDNaODFmRnpvemdoRG1nVQ=="/></a></span></td><td class="cell-J[[u"><span class="selected-value select-value-color-yellow">⭐⭐⭐</span></td><td class="cell-op~m"><time>@2025년 8월 12일</time></td></tr><tr id="25e4e113-135f-80bb-8b50-e82403dfbf50"><td class="cell-title"><a href="Series%2025c4e113135f8091af21c05609fdf3f6/Series%2025e4e113135f8014b793d25a591bbf12/%EB%9D%BC%EB%94%94%EC%97%90%EC%9D%B4%EC%85%98%20%ED%95%98%EC%9A%B0%EC%8A%A4%20(S%201)%2025e4e113135f80bb8b50e82403dfbf50.html">라디에이션 하우스 (S.1)</a></td><td class="cell-Kysk"><span class="selected-value select-value-color-brown">마루야마 토모미</span><span class="selected-value select-value-color-yellow">야노 마사토</span><span class="selected-value select-value-color-blue">야마구치 사야카</span><span class="selected-value select-value-color-pink">엔도 켄이치</span><span class="selected-value select-value-color-green">쿠보타 마시타카</span><span class="selected-value select-value-color-red">하마노 겐타</span><span class="selected-value select-value-color-pink">혼다 츠바사</span><span class="selected-value select-value-color-pink">히로세 아리스</span></td><td class="cell-=oz]"><span class="selected-value select-value-color-blue">Japan</span></td><td class="cell-:aEI"><span class="selected-value select-value-color-blue">12부작</span></td><td class="cell-yNb_"><span style="margin-inline-end:6px"><a href="https://an2-img.amz.wtchn.net/image/v2/26x2Vwtm1TAYkKtW75G-Cw.webp?jwt=ZXlKaGJHY2lPaUpJVXpJMU5pSjkuZXlKdmNIUnpJanBiSW1SZk5Ea3dlRGN3TUhFNE1DSmRMQ0p3SWpvaUwzWXhMMlF4YWpoeVpXaDRiblp3ZFdweWFtbDJlak5zSW4wLnZ0b1J4Yy1WZ1NvNlVVZWVObkRKRmVzVUpPWFgydU5hbjR3eGV0VG5aVU0="><img style="width:20px;max-height:24px" src="https://an2-img.amz.wtchn.net/image/v2/26x2Vwtm1TAYkKtW75G-Cw.webp?jwt=ZXlKaGJHY2lPaUpJVXpJMU5pSjkuZXlKdmNIUnpJanBiSW1SZk5Ea3dlRGN3TUhFNE1DSmRMQ0p3SWpvaUwzWXhMMlF4YWpoeVpXaDRiblp3ZFdweWFtbDJlak5zSW4wLnZ0b1J4Yy1WZ1NvNlVVZWVObkRKRmVzVUpPWFgydU5hbjR3eGV0VG5aVU0=" alt="https://an2-img.amz.wtchn.net/image/v2/26x2Vwtm1TAYkKtW75G-Cw.webp?jwt=ZXlKaGJHY2lPaUpJVXpJMU5pSjkuZXlKdmNIUnpJanBiSW1SZk5Ea3dlRGN3TUhFNE1DSmRMQ0p3SWpvaUwzWXhMMlF4YWpoeVpXaDRiblp3ZFdweWFtbDJlak5zSW4wLnZ0b1J4Yy1WZ1NvNlVVZWVObkRKRmVzVUpPWFgydU5hbjR3eGV0VG5aVU0="/></a></span></td><td class="cell-J[[u"><span class="selected-value select-value-color-brown">⭐⭐⭐⭐</span></td><td class="cell-op~m"><time>@2025년 8월 26일</time></td></tr><tr id="25e4e113-135f-804a-b48f-c4bcb64278fb"><td class="cell-title"><a href="Series%2025c4e113135f8091af21c05609fdf3f6/Series%2025e4e113135f8014b793d25a591bbf12/%EC%82%AC%EA%B1%B4%EC%88%98%EC%82%AC%EB%8C%80%20Q%2025e4e113135f804ab48fc4bcb64278fb.html">사건수사대 Q</a></td><td class="cell-Kysk"><span class="selected-value select-value-color-yellow">매튜 구드</span><span class="selected-value select-value-color-pink">알렉세이 만벨로프</span><span class="selected-value select-value-color-orange">제이미 시브스</span><span class="selected-value select-value-color-orange">클로이 피리</span></td><td class="cell-=oz]"><span class="selected-value select-value-color-green">UK</span></td><td class="cell-:aEI"><span class="selected-value select-value-color-green">9부작</span></td><td class="cell-yNb_"><span style="margin-inline-end:6px"><a href="https://an2-img.amz.wtchn.net/image/v2/6JFapwZKfwM77VPiY0zJRQ.webp?jwt=ZXlKaGJHY2lPaUpJVXpJMU5pSjkuZXlKdmNIUnpJanBiSW1SZk5Ea3dlRGN3TUhFNE1DSmRMQ0p3SWpvaUwzWXlMM04wYjNKbEwybHRZV2RsTHpNNE1ETTBOekUxTXpRNU5qZ3lNamtpZlEuTGxKZmRtaXlkQW1tNWVGdFh5SWhmT3FYU3NqTVh1SFl2N2ZFS3E4N0p1dw=="><img style="width:20px;max-height:24px" src="https://an2-img.amz.wtchn.net/image/v2/6JFapwZKfwM77VPiY0zJRQ.webp?jwt=ZXlKaGJHY2lPaUpJVXpJMU5pSjkuZXlKdmNIUnpJanBiSW1SZk5Ea3dlRGN3TUhFNE1DSmRMQ0p3SWpvaUwzWXlMM04wYjNKbEwybHRZV2RsTHpNNE1ETTBOekUxTXpRNU5qZ3lNamtpZlEuTGxKZmRtaXlkQW1tNWVGdFh5SWhmT3FYU3NqTVh1SFl2N2ZFS3E4N0p1dw==" alt="https://an2-img.amz.wtchn.net/image/v2/6JFapwZKfwM77VPiY0zJRQ.webp?jwt=ZXlKaGJHY2lPaUpJVXpJMU5pSjkuZXlKdmNIUnpJanBiSW1SZk5Ea3dlRGN3TUhFNE1DSmRMQ0p3SWpvaUwzWXlMM04wYjNKbEwybHRZV2RsTHpNNE1ETTBOekUxTXpRNU5qZ3lNamtpZlEuTGxKZmRtaXlkQW1tNWVGdFh5SWhmT3FYU3NqTVh1SFl2N2ZFS3E4N0p1dw=="/></a></span></td><td class="cell-J[[u"><span class="selected-value select-value-color-brown">⭐⭐⭐⭐</span></td><td class="cell-op~m"><time>@2025년 8월 7일</time></td></tr><tr id="25e4e113-135f-806e-9d3b-e11c8e5ca956"><td class="cell-title"><a href="Series%2025c4e113135f8091af21c05609fdf3f6/Series%2025e4e113135f8014b793d25a591bbf12/%EC%96%B8%ED%85%8C%EC%9E%84%EB%93%9C%2025e4e113135f806e9d3be11c8e5ca956.html">언테임드</a></td><td class="cell-Kysk"><span class="selected-value select-value-color-gray">릴리 산티아고</span><span class="selected-value select-value-color-yellow">샘 닐</span><span class="selected-value select-value-color-blue">에릭 바나</span></td><td class="cell-=oz]"><span class="selected-value select-value-color-default">US</span></td><td class="cell-:aEI"><span class="selected-value select-value-color-purple">6부작</span></td><td class="cell-yNb_"><span style="margin-inline-end:6px"><a href="https://an2-img.amz.wtchn.net/image/v2/sJCkOzQiIVv_lusCYNhkEQ.webp?jwt=ZXlKaGJHY2lPaUpJVXpJMU5pSjkuZXlKdmNIUnpJanBiSW1SZk5Ea3dlRGN3TUhFNE1DSmRMQ0p3SWpvaUwzWXlMM04wYjNKbEwybHRZV2RsTHpNd05qazJOekk1TlRJM016VTNNaUo5LlZhQmtlbnlTVm1venhsemo1NmlJMGM1OXVzU3ozeVhZM3ZJZzFRSzFHOUk="><img style="width:20px;max-height:24px" src="https://an2-img.amz.wtchn.net/image/v2/sJCkOzQiIVv_lusCYNhkEQ.webp?jwt=ZXlKaGJHY2lPaUpJVXpJMU5pSjkuZXlKdmNIUnpJanBiSW1SZk5Ea3dlRGN3TUhFNE1DSmRMQ0p3SWpvaUwzWXlMM04wYjNKbEwybHRZV2RsTHpNd05qazJOekk1TlRJM016VTNNaUo5LlZhQmtlbnlTVm1venhsemo1NmlJMGM1OXVzU3ozeVhZM3ZJZzFRSzFHOUk=" alt="https://an2-img.amz.wtchn.net/image/v2/sJCkOzQiIVv_lusCYNhkEQ.webp?jwt=ZXlKaGJHY2lPaUpJVXpJMU5pSjkuZXlKdmNIUnpJanBiSW1SZk5Ea3dlRGN3TUhFNE1DSmRMQ0p3SWpvaUwzWXlMM04wYjNKbEwybHRZV2RsTHpNd05qazJOekk1TlRJM016VTNNaUo5LlZhQmtlbnlTVm1venhsemo1NmlJMGM1OXVzU3ozeVhZM3ZJZzFRSzFHOUk="/></a></span></td><td class="cell-J[[u"><span class="selected-value select-value-color-yellow">⭐⭐⭐</span></td><td class="cell-op~m"><time>@2025년 8월 21일</time></td></tr><tr id="25e4e113-135f-80ea-8cbb-f2fbdb7f0df4"><td class="cell-title"><a href="Series%2025c4e113135f8091af21c05609fdf3f6/Series%2025e4e113135f8014b793d25a591bbf12/%EC%BA%90%EC%8A%A4%ED%84%B0%2025e4e113135f80ea8cbbf2fbdb7f0df4.html">캐스터</a></td><td class="cell-Kysk"><span class="selected-value select-value-color-purple">나가노 메이</span><span class="selected-value select-value-color-gray">미치에다 슌스케</span><span class="selected-value select-value-color-green">아베 히로시</span></td><td class="cell-=oz]"><span class="selected-value select-value-color-blue">Japan</span></td><td class="cell-:aEI"><span class="selected-value select-value-color-yellow">10부작</span></td><td class="cell-yNb_"><span style="margin-inline-end:6px"><a href="https://an2-img.amz.wtchn.net/image/v2/XmMmvQYEGhIGA05nu_67Kg.webp?jwt=ZXlKaGJHY2lPaUpJVXpJMU5pSjkuZXlKdmNIUnpJanBiSW1SZk5Ea3dlRGN3TUhFNE1DSmRMQ0p3SWpvaUwzWXlMM04wYjNKbEwybHRZV2RsTHpFNE9EWTFNekF3TlRZMk9EWTRNVE1pZlEuLVFEWVN5R0YtQXl1NTRQYVBCV09ndzhnbjJ2UXBqVTA2ZGJuZkctLUxyZw=="><img style="width:20px;max-height:24px" src="https://an2-img.amz.wtchn.net/image/v2/XmMmvQYEGhIGA05nu_67Kg.webp?jwt=ZXlKaGJHY2lPaUpJVXpJMU5pSjkuZXlKdmNIUnpJanBiSW1SZk5Ea3dlRGN3TUhFNE1DSmRMQ0p3SWpvaUwzWXlMM04wYjNKbEwybHRZV2RsTHpFNE9EWTFNekF3TlRZMk9EWTRNVE1pZlEuLVFEWVN5R0YtQXl1NTRQYVBCV09ndzhnbjJ2UXBqVTA2ZGJuZkctLUxyZw==" alt="https://an2-img.amz.wtchn.net/image/v2/XmMmvQYEGhIGA05nu_67Kg.webp?jwt=ZXlKaGJHY2lPaUpJVXpJMU5pSjkuZXlKdmNIUnpJanBiSW1SZk5Ea3dlRGN3TUhFNE1DSmRMQ0p3SWpvaUwzWXlMM04wYjNKbEwybHRZV2RsTHpFNE9EWTFNekF3TlRZMk9EWTRNVE1pZlEuLVFEWVN5R0YtQXl1NTRQYVBCV09ndzhnbjJ2UXBqVTA2ZGJuZkctLUxyZw=="/></a></span></td><td class="cell-J[[u"><span class="selected-value select-value-color-yellow">⭐⭐⭐</span></td><td class="cell-op~m"><time>@2025년 8월 5일</time></td></tr><tr id="25e4e113-135f-80bc-8acf-d9090b3d5220"><td class="cell-title"><a href="Series%2025c4e113135f8091af21c05609fdf3f6/Series%2025e4e113135f8014b793d25a591bbf12/%ED%9D%AC%EC%83%9D%EC%9E%90%20%EA%B2%8C%EC%9E%84%20(S%201)%2025e4e113135f80bc8acfd9090b3d5220.html">희생자 게임 (S.1)</a></td><td class="cell-Kysk"><span class="selected-value select-value-color-brown">쉬웨이닝</span><span class="selected-value select-value-color-brown">왕위등</span><span class="selected-value select-value-color-gray">장샤오취안</span></td><td class="cell-=oz]"><span class="selected-value select-value-color-yellow">Taiwan</span></td><td class="cell-:aEI"><span class="selected-value select-value-color-pink">8부작</span></td><td class="cell-yNb_"><span style="margin-inline-end:6px"><a href="https://an2-img.amz.wtchn.net/image/v2/Gcy7i3Rmgr3607s3k5_xXA.webp?jwt=ZXlKaGJHY2lPaUpJVXpJMU5pSjkuZXlKdmNIUnpJanBiSW1SZk5Ea3dlRGN3TUhFNE1DSmRMQ0p3SWpvaUwzWXhMM1JzYTNsMVpXRmxaRE4zZG5kMGFYRjJiVFY0SW4wLjRCOVVqWFFzb0ZqSkZiNThsUllrcFl4d3hVbnpDY1VRVUhLS3VzaHI0WFE="><img style="width:20px;max-height:24px" src="https://an2-img.amz.wtchn.net/image/v2/Gcy7i3Rmgr3607s3k5_xXA.webp?jwt=ZXlKaGJHY2lPaUpJVXpJMU5pSjkuZXlKdmNIUnpJanBiSW1SZk5Ea3dlRGN3TUhFNE1DSmRMQ0p3SWpvaUwzWXhMM1JzYTNsMVpXRmxaRE4zZG5kMGFYRjJiVFY0SW4wLjRCOVVqWFFzb0ZqSkZiNThsUllrcFl4d3hVbnpDY1VRVUhLS3VzaHI0WFE=" alt="https://an2-img.amz.wtchn.net/image/v2/Gcy7i3Rmgr3607s3k5_xXA.webp?jwt=ZXlKaGJHY2lPaUpJVXpJMU5pSjkuZXlKdmNIUnpJanBiSW1SZk5Ea3dlRGN3TUhFNE1DSmRMQ0p3SWpvaUwzWXhMM1JzYTNsMVpXRmxaRE4zZG5kMGFYRjJiVFY0SW4wLjRCOVVqWFFzb0ZqSkZiNThsUllrcFl4d3hVbnpDY1VRVUhLS3VzaHI0WFE="/></a></span></td><td class="cell-J[[u"><span class="selected-value select-value-color-yellow">⭐⭐⭐</span></td><td class="cell-op~m"><time>@2025년 8월 19일</time></td></tr></tbody></table><br/><br/></div><p id="25e4e113-135f-80e1-98f2-eb467da2f175" class="">
+</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
